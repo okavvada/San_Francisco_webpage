@@ -10,6 +10,7 @@
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+
   </head>
   <body>
     <div class="wrapper">
@@ -17,37 +18,49 @@
         <h1 class="header">Non-Potable Water Reuse in San Francisco</h1>
         <p class="header"></p>
 
-        <p class="header">The benefits and opportunities of decentralization</p>
+        <p class="header">A modeling framework for decentralization</p>
 
       </header>
       <section>
         <h3>
-<c class="anchor" aria-hidden="true"></c>Introduction</h3>
+<c class="anchor" aria-hidden="true"></c>Water Reuse in context</h3>
 <p>Water reuse refers to the action of treating the wastewater to an acceptable standard in order to be able to be reused in other applications. Water reuse has been rapidly increasing in popularity especially in drought prone locations such as Califoria. Early adopters have already been thinking of enhancing their water portfolio by incorporating water reuse in their water mix. Water reuse has been identified as an efficient way of adding resiliency to the water infrastructure and providing solutions to alleviate some of the impacts of drought. Non-potable reuse (NPR) involves using recycled water for uses that do not require high quality water such as toilet flushing, irrigation, and other similar uses. This can help mitigate some of the treatment requirements but requires the construction and installation of a separate distribution system for the water to be reused. </p>
 
 <p>The process of reusing the water involves specialized planning as the generated wastewater needs to be collected, treated and re-distributed to the points of demand. This process requires energy and emits greenhouse gases (GHG). Another important consideration is the effect of scale. Larger systems benefit from the "economies of scale", as the treatment process takes place in large facilities that are generally more efficient. The tradeoff here is that larger scale systems require more infrastructure and potentially more pumping for the water distribution as they are generally located further away from the point of demand. This tradeoff is of major importance when thinking of implementing water reuse systems and should be assessed in detail. The spatial parameters of an area along with water demands and pooulation density can be significant contributors in identifying the best way to implement water reuse. Spatial analysis along with a life-cycle assessment of the required infrastructure is of major importance to identify the right way to promote water resiliency with the minimal environmental impacts.</p>
 
 <h3>
-<c class="anchor" aria-hidden="true"></c>Problem Statement</h3>
+<c class="anchor" aria-hidden="true"></c>But what system scale should we be thinking about given certain spatial paramenters? </h3>
 
-<p>This work aims to assess different levels of decentralization for implementing non-potable water reuse. The goal of the study is to understand the effect of the spatial parameters and identify the threshold where the conveyance requirements outweigh the benefits of economies of scale identified in the treatment process. This work utilizes a life-cycle assessment methodology as a framework for assessing the energy use and GHG emissions of residential water reuse. To create a functionally equivalent comparison, the study compares decentralized systems implemented over a range of different scales with centralized water reuse, for different spatial conditions (e.g. topography and population density). The framework described here can be used as a planning support tool to include the energy and GHG impacts when integrating decentralized infrastructure for water reuse into an urban setting with existing centralized sewerage and wastewater infrastructure.</p>
+<p>As described above the tradeoff between different scales of NPR is the conveyance distribution requirements versus the efficiency in the treatment mechanism. This work aims to assess NPR using San Francisco as a case study and evaluate different levels of decentralization. The goal is to understand the effect of the spatial parameters and identify the threshold where the conveyance requirements outweigh the benefits of economies of scale identified in the treatment process. This work utilizes a life-cycle assessment methodology as a framework for assessing the energy use and GHG emissions of residential water reuse.</p>
+
+<p>To create a functionally equivalent comparison, the study compares decentralized systems implemented over a range of different scales with centralized water reuse, for different spatial conditions (e.g. topography and population density). Our assessment includes the lifecycle impacts associated with the construction, operation and maintenance of NPR pipes (including excavation and backfilling for average trench depths for the selected pipe diameter), storage tanks, treatment facilities and pumps for sewage collection and NPR distribution, and production and transportation of materials. The framework described here can be used as a planning support tool to include the energy and GHG impacts when integrating decentralized infrastructure for water reuse into an urban setting with existing centralized sewerage and wastewater infrastructure.</p>
 
 <h3>
-<c class="anchor" aria-hidden="true"></span></c>Results and Discussion</h3>
+<c class="anchor" aria-hidden="true"></c>Modeling Process</h3>
+<p>To appropriately model the specific case study of San Francisco, we divided the city into small grid cells (500 m x 500 m) and in each one we evaluated the performance of a decentralized water reuse system in different scales with the centralized water reuse alternative. In each grid cell we accounted for the location specific topography and population density. The number of people served refers to the numbr of people that their wastewater is used to generate reused water. We accounted for the wastewater generation and reused water demand separately as the NPR water can only serve approximately 50% of the total residential demand. To provide a realistic comparison we modeled different treatment systems for the decentralized approach and the centralized approach. For the decentalized approach an MBR system is used with certain pretreatment and disinfection and for the centralized treatment we assumed the existing secondary treatment of San Frnacisco coupled with tertiary treatment for NPR including reverse osmosis due to saltwater intrusion in the sewer system.</p>
 
-<p></p>
+<p>The decentralized distribution system was modeled based on average city block sizes and specific population density to estimate the required piping infrastructure and pumping needs for each system scale. The centralized distribution was a bit more complex as we modeled it based on the existing street network and calculating the piping infrastructure based on the shortest path (Dijkstra's algorithm) between each grid cell and the closest centralized wastewater treatment plant. The pumping needs were estimated based on the overall elevation difference between the grid cell and the treatment plant accounting for the elevation head, velocity head, consumption pressure and headlosses. The route elevation was also taken into account when estimating the connecting path between grid cell and treatment plant to identify the route with the minimum piping and pumping requirements.</p>
+
+<p>Specifically for the centralized water reuse scenario, we modeled two extreme piping distribution scenarios to cover the range of approaches of NPR implementation, the "completely connected" scenario and the "completely dispersed" scenario. The "completely connected" scenario referst to the case where San Francisco implements a NPR network throughout the entire city and each grid cell is only allocated the amount of piping that it is responsible for given the number of grid cells each pipe segment serves. The "completely dispersed" scenario is a more unrealistic case where each grid cell is connected to the centralized plant by a single pipe that serves that and only grid cell. In this case, the allocation of embodied energy and GHG emissions for pipe manufacture, construction, and maintenance was much larger for each grid cell, giving the uppper bound of the analysis.</p>
+
+<p>The figure below visualizes the results of the analysis. In each grid cell we can identify the minimum system scale where decentralized reuse becomes a more efficient option than centralized reuse. This means that if a system of that scale or larger were to be implemented in that area, a decentralized treatment can be implemented with less environmental impacts than sending reuse water from the centralized plant. At that minimum scale and over the impact of water conveyance outweighs the "economies of scale" and a small decentralized plant can be more effiecient overall. To interpret the results in a decision support framework, if a development were to be implemented in a specific area of the city with a certain size, the map shows whether it is more environmetally beneficial for it to implement its own wastewater treatment for reuse of just connect to the centralized treatment plant. Alternatively, from a centralized planning perspective, you can think of it as identifying areas where a centralized distribution system would be beneficial to exist.</p>
 
 <a href="https://raw.githubusercontent.com/okavvada/San_Francisco_webpage/gh-pages/images/Feasibility_Energy_SF_Specific_legend.png"><img id="feasibility-image" src="images/Feasibility_Energy_SF_Specific_legend.png" height="450" width="700"></a>
-<c class= "caption"> Minimum facility size for each grid cell for decentralized reuse to be more efficient than a centralized reuse scenario for (1) “completely dispersed” and (2) “completely connected” recycled water pipe networks.  Lifecycle energy intensity for (a) current MBR performance and (b) future scenario in which the MBR treatment has gained 20% operational efficiency. </c>
+<c class= "caption"> Minimum facility size for each grid cell for decentralized reuse to be more efficient than a centralized reuse scenario for (1) “completely dispersed” and (2) “completely connected” recycled water pipe networks.  Lifecycle energy intensity for (a) current MBR performance and (b) future scenario in which the MBR treatment has gained 20% operational efficiency.</c>
 <a href="https://raw.githubusercontent.com/okavvada/San_Francisco_webpage/gh-pages/images/Feasibility_Energy_SF_Specific_legend.png">Click to see GHG emissions results.</a>
+<h3>
+<c class="anchor" aria-hidden="true"></span></c>Discussion</h3>
+
+<p>Water infrastructure is spatially sensitive. Especially when considering water reuse most of the decisions are based on the re-destribution of the water to the points of demand as usually the wastewater treatment plants are located downhill and in the outskirts of the cities. Optimal solutions might vary depending on location, scale, number of facilities and topography. Although small systems suffer in treatment efficiency per unit of water treated, they are benefiting from being closer to the point of use and avoiding the large conveyance costs. By carefully assessing the spatial conditions in which NPR exists we can identify optimal solutions that minimize the environmental impacts.</p>
+
 
 
 <h3>
 <c class="anchor" aria-hidden="true"></c>Authors and Contributors</h3>
 
-<p>This work refers to previous research and is extending published results. The findings and results of the original study can be found in the Environmental Science and Technology Journal under the titled publication <a href="https://github.com/okavvada">Assessing Location and Scale of Urban Non-Potable Water Reuse Systems for Life-Cycle Energy Consumption and Greenhouse Gas Emissions.</a> The data used here has been adjusted to model the planned treatment process for centralized NPR in San Francisco which is more complex and energy intensive than conventional NPR treatment due to saltwater intrusion in the sewer system.</p>
+<p>This work refers to previous research and is extending published results. The findings and results of the original study can be found in the Environmental Science and Technology Journal under the titled publication <a href="https://github.com/okavvada">Assessing Location and Scale of Urban Non-Potable Water Reuse Systems for Life-Cycle Energy Consumption and Greenhouse Gas Emissions</a>. The data used here has been adjusted to model the planned treatment process for centralized NPR in San Francisco which is more complex and energy intensive than conventional NPR treatment due to saltwater intrusion in the sewer system.</p>
 
-<p>The funding for this research was provided by the National Science Foundation-funded <a href="http://renuwit.org"> Reinventing the Nation’s Urban Water Infrastructure (ReNUWIt) Engineering Research Center</a> (NSF Grant No. CBET-0853512). Any opinions, findings, and conclusions or recommendations expressed in this material are those of the named authors and do not necessarily reflect the views of the NSF.</p>
+<p>The funding for this research was provided by the National Science Foundation-funded <a href="http://renuwit.org"> Reinventing the Nation’s Urban Water Infrastructure (ReNUWIt) Engineering Research Center</a>. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the named authors and do not necessarily reflect the views of the NSF.</p>
 
 <h3>
 <c class="anchor" aria-hidden="true"></c>Support or Contact</h3>
@@ -56,6 +69,7 @@
       </section>
       <footer>
         <p><small>This project is maintained by <a href="https://github.com/okavvada">@okavvada</a></p>
+        <p><small>See all blogs at <a href="https://okavvada.github.io/">Olga's Blog page</a></p>
       </footer>
     </div>
 		
