@@ -44,7 +44,7 @@ body {
 .tooltip-content {
   display: none;
   position: absolute;
-  background-color: #ffeebc;
+  background-color: #d7c7e0;
   padding: .5em;
   float:left;
   z-index: 99;
