@@ -37,6 +37,32 @@ body {
 
 }
 
+.tooltip-wrap {
+  position: relative;
+
+}
+.tooltip-content {
+  display: none;
+  position: absolute;
+  background-color: #ffeebc;
+  padding: .5em;
+  float:left;
+  z-index: 99;
+  margin-right:-45em;
+  margin-left:1em;
+  color: #000;
+  border: 1px solid #000;
+  
+}
+.tooltip-wrap:hover .tooltip-content {
+  display: block;
+  border-radius:10px;
+}
+
+sup { 
+    vertical-align: super;
+    font-size: 10px;
+}
 h1, h2, h3, h4, h5, h6 {
   color:#232323;
   margin:36px 0 10px;
@@ -78,6 +104,18 @@ h4, h5, h6 {
 a {
   color:#C30000;
   font-weight:200;
+  text-decoration:none;
+}
+
+b {
+  color:#000;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+c {
+  color:#000;
+  font-weight:bold;
   text-decoration:none;
 }
 
@@ -313,9 +351,15 @@ a.github {
 	background: url(../images/octocat-small.png) no-repeat 1px;
 }
 
+a.authors {
+	color:#000;
+	font-weight: bold;
+	font-style: italic;
+}
+
 a.buttons:hover {
 	color: #fff;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 
